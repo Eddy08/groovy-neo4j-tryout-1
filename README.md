@@ -1,6 +1,6 @@
 ### Neo4j Schema and Corresponding Data
 
-[neo4j](./neo4j-parent-child.png)
+![neo4j](./neo4j-parent-child.png)
 
 ### Groovy Example for Github Issue
 
