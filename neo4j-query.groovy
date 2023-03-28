@@ -3,7 +3,8 @@
   @Grab('com.sparkjava:spark-core:2.7.2'),
   @Grab('org.neo4j.driver:neo4j-java-driver:5.6.0'),
   @Grab('com.google.code.gson:gson:2.8.5'),
-  @Grab('org.neo4j:neo4j-graphql-java:1.7.0')
+  @Grab('org.neo4j:neo4j-graphql-java:1.7.0'),
+  @Grab('org.grails:gorm-graphql:2.0.0')
 ])
 
 import spark.*
