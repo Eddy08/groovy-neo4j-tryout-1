@@ -4,7 +4,6 @@
   @Grab('org.neo4j.driver:neo4j-java-driver:5.6.0'),
   @Grab('com.google.code.gson:gson:2.8.5'),
   @Grab('org.neo4j:neo4j-graphql-java:1.7.0'),
-  @Grab('org.grails:gorm-graphql:2.0.0')
 ])
 
 import spark.*
@@ -20,7 +19,7 @@ type Parent{
     Parent_Child_Mapping:[Parent_Child_Mapping]
 }
 type Parent_Child_Mapping @relation (name: "Parent_Child_Mapping", from :"Parent", to: "Child"){
-     Parent: [Parent]
+    Parent: [Parent]
     Child: [Child]
     edgeDetails: String
 }
@@ -29,8 +28,8 @@ type Child{
      Parent_Child_Mapping: [Parent_Child_Mapping]
 }
 type Query {
-    parent : [Parent]
-    child :  [Child] 
+    Parent : [Parent]
+    Child :  [Child] 
     }
 """
 print "hello"
