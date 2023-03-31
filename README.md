@@ -138,3 +138,51 @@ CREATE(p1:Parent {parent_id:'p1',parent_name:'P1'}),
         (p2)-[:Parent_Child_Mapping{edgeDetails:'edge_2'}]->(c2),
         (p2)-[:Parent_Child_Mapping{edgeDetails:'edge_3'}]->(c2)
 ```
+
+### Bing AI Chat helped
+
+Harsh Bhardwaj <bhardwajharsh08@gmail.com>
+10:51 PM (0 minutes ago)
+to me
+
+---------- Forwarded message ---------
+From: Harsh Bhardwaj <bhardwajharsh08@gmail.com>
+Date: Wed, 29 Mar, 2023, 12:48 pm
+Subject: Gitpod.yml
+To: Harsh Bhardwaj <bhardwajharsh08@gmail.com>
+
+Sure, I can try to generate a gitpod.yml file that will contain two containers. Based on the search results, I found that you can use the **additionalRepositories** and **mainConfiguration** keys in the .gitpod.yml file to clone multiple repositories and configure services that need to be aware of each other¹. Here is an example of a possible gitpod.yml file:
+
+```yaml
+# This is a gitpod.yml file that contains two containers
+image: gitpod/workspace-full # Use a public Docker image as the base image
+
+tasks:
+  - name: Container 1 # Name of the first container
+    before: # Commands to run before cloning the repository
+      - echo "This is container 1"
+    init: # Commands to run after cloning the repository
+      - git clone https://github.com/example/repo1.git # Clone an additional repository
+    command: # Commands to run after init
+      - cd repo1
+      - npm install # Install dependencies
+      - npm start # Start the application
+    additionalRepositories: # Additional repositories to clone
+      - https://github.com/example/repo2.git
+
+  - name: Container 2 # Name of the second container
+    before: # Commands to run before cloning the repository
+      - echo "This is container 2"
+    init: # Commands to run after cloning the repository
+      - git clone https://github.com/example/repo3.git # Clone another additional repository
+    command: # Commands to run after init
+      - cd repo3
+      - python app.py # Run a Python script
+    mainConfiguration: .gitpod.Dockerfile # Use a custom Dockerfile for this container
+
+ports:
+  - port: 3000 # Expose port 3000 for the first container
+    onOpen: open-preview # Open a preview when the port is ready
+  - port: 5000 # Expose port 5000 for the second container
+    onOpen: open-browser # Open a browser when the port is ready
+```
