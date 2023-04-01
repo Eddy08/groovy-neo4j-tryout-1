@@ -1,4 +1,3 @@
-
 CREATE(p1:Parent {parent_id:'p1',parent_name:'P1'}),
 (p2:Parent {parent_id:'p2',parent_name:'P2'}),
 
