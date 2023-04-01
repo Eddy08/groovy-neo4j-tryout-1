@@ -1,0 +1,8 @@
+image:
+  file: .gitpod.Dockerfile
+ports:
+- port: 7474
+- port: 7687
+- port: 4567
+tasks:
+- command: groovy neo4j-query.groovy
