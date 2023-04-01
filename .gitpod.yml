@@ -1,0 +1,19 @@
+image: gitpod/workspace-full
+
+tasks:
+  - name: Run neo4j container
+    init: docker run -d --name neo4j -p 7474:7474 -p 7687:7687 neo4j
+  - name: Run groovy script container
+    init: docker run -d --name groovy -p 8080:8080 -v "$PWD":/home/groovy/scripts -w /home/groovy/scripts groovy groovy <script> <script-args>
+
+ports:
+  - port: 7474
+    onOpen: open-preview
+    name: Neo4j HTTP
+  - port: 7687
+    onOpen: ignore
+    name: Neo4j Bolt
+  - port: 8080
+    onOpen: open-preview
+    name: Groovy Script
+
