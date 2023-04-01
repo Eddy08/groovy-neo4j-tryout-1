@@ -2,7 +2,15 @@ image: gitpod/workspace-full
 
 tasks:
   - name: Run neo4j container
-    init: docker run --publish=7474:7474 --publish=7687:7687 neo4j:5.6.0-community
+    init: |          
+          docker run --rm \
+           --volume /path/to/local/examples:/examples \
+           --publish=7474:7474 \
+           --publish=7687:7687 \
+           --env NEO4J_AUTH=neo4j/Harsh@123 \
+           neo4j:5.6.0-community
+          docker exec --interactive --tty  cypher-shell -u neo4j -p 
+          neo4j@neo4j> :source init-script.cypher
   - name: Run groovy script container
     init: docker run -d --name groovy -p 4567:4567 -v "$PWD":/home/groovy/scripts -w /home/groovy/scripts groovy groovy neo4j-query.groovy
 
