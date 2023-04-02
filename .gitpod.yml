@@ -9,7 +9,7 @@ tasks:
        --env NEO4J_AUTH=neo4j/Harsh@123 \
        -v "$PWD":/home/groovy/scripts -w /home/groovy/scripts \
        neo4j:5.6.0-community \
-      cypher-shell -u neo4j -p Harsh@123;
+      cypher-shell -u neo4j -p Harsh@123 \
       :source init-script.cypher
   - name: Run groovy script container
     init: docker run -d --name groovy -p 4567:4567 -v "$PWD":/home/groovy/scripts -w /home/groovy/scripts groovy groovy neo4j-query.groovy
