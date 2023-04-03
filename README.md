@@ -51,9 +51,13 @@ So no need of filter on Child Node !!!
 
 - If something wrong is happening then only do
   - ─➤ groovy -Dgroovy.grape.report.downloads=true -Divy.message.logger.level=4 neo4j-query.groovy
+  or
+  - ─➤ groovy -Dhttp.proxyHost=localhost -Dhttp.proxyPort=8080 neo4j-query.groovy  
+
 - Else
   - ─➤ just go to the Section where Curl post commands are mentioned
   - ─➤ Try to run them in the gitpod console
+
 
 ### Running the Groovy Script and graphql queries
 
