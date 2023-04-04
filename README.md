@@ -152,7 +152,7 @@ authorization
 ```
 
 ```
-fcurl --location --request POST 'http://localhost:7474/db/neo4j/tx/commit' \
+curl --location --request POST 'http://localhost:7474/db/neo4j/tx/commit' \
 --header 'Authorization: Basic bmVvNGo6SGFyc2hAMTIz' \
 --header 'Content-Type: application/json' \
 --data-raw '{
